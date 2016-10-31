@@ -193,6 +193,10 @@ GameObject:
   - 135: {fileID: 253072724}
   - 23: {fileID: 253072723}
   - 54: {fileID: 253072727}
+  - 114: {fileID: 253072730}
+  - 114: {fileID: 253072729}
+  - 114: {fileID: 253072728}
+  - 114: {fileID: 253072731}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -276,6 +280,52 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &253072728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 253072722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4be75d845497d49cca71d7936a16b0f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Body: {fileID: 0}
+--- !u!114 &253072729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 253072722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bed863dee2e94a62a0e6e48f72c45a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &253072730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 253072722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1be412be90ecd8c4580345cc10e89a69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Character: {fileID: 0}
+--- !u!114 &253072731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 253072722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e851ef777e397b4d9019a48cb529c14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &258795996
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,8 +406,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 258795996}
-  m_LocalRotation: {x: -0.08267085, y: 0.88086253, z: -0.16740787, w: -0.4349958}
-  m_LocalPosition: {x: 12.033203, y: 6.7460938, z: 9.043945}
+  m_LocalRotation: {x: -0.093965895, y: 0.8848672, z: -0.40829954, w: -0.20364672}
+  m_LocalPosition: {x: 101.785835, y: 29.913168, z: 103.361206}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -391,13 +441,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c73841389b69fe4496193cc003cbc31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wander1: {fileID: 253072726}
-  wander2: {fileID: 0}
-  wander3: {fileID: 0}
+  movePoints:
+  - {fileID: 1106182416}
+  - {fileID: 217112823}
+  - {fileID: 542288686}
+  participants:
+  - {fileID: 1215577845}
+  - {fileID: 427420764}
+  - {fileID: 572609933}
   ball: {fileID: 253072722}
-  participant1: {fileID: 1215577845}
-  participant2: {fileID: 427420764}
-  participant3: {fileID: 572609933}
 --- !u!114 &266374612
 MonoBehaviour:
   m_ObjectHideFlags: 0

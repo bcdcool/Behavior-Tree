@@ -5,11 +5,14 @@ using TreeSharpPlus;
 
 public class MyBehaviorTree : MonoBehaviour
 {
-    public GameObject[] movePoints;
-    public int movePointsSize; 
+    
+    public static int movePointsSize;
+    public GameObject[] movePoints = new GameObject[movePointsSize];
 
-    public GameObject[] participants;
-    public int participantSize;  
+    public static int participantSize;  
+    public GameObject[] participants = new GameObject[movePointsSize];
+
+    
 
     public GameObject ball; 
 
@@ -45,10 +48,11 @@ public class MyBehaviorTree : MonoBehaviour
     }
 
 
-    protected Node ST_ThrowAndCatch()
+    protected Node ST_ThrowAndCatch(GameObject thrower, GameObject catcher)
     {
-        Val<Vector3> position = Val.V(() => ball.transform.position);
-        return new Sequence(participants[0].GetComponent<BehaviorMecanim>().Node_GoTo(position), new LeafWait(1000));
+
+        Val<Vector3> throwPosition = Val.V(() => catcher.transform.position);
+        return new Sequence(participants[0].GetComponent<BehaviorMecanim>().Node_GoTo(throwPosition), new LeafWait(1000));
 
     }
 
