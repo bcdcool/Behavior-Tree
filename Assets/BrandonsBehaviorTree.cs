@@ -43,12 +43,13 @@ public class BrandonsBehaviorTree : MonoBehaviour {
     {
         int pickUp = 0;//UnityEngine.Random.Range(0, 2); 
         Node roaming = new Sequence(
-                        //this.ST_Enter(),
-                        this.ST_Greetings(),
-                        this.ST_PickUpBall(participant[pickUp]),
-                        new LeafWait(2000),
-                        this.ST_Leave(pickUp)
-                        );
+           // this.ST_ApproachAndWait(participant[0], wander[0])           
+            //this.ST_Enter(),
+            //this.ST_Greetings(),
+            this.ST_PickUpBall(participant[pickUp])
+            //new LeafWait(2000),
+            //this.ST_Leave(pickUp)
+            );
         return roaming;
     }
 
@@ -137,13 +138,20 @@ public class BrandonsBehaviorTree : MonoBehaviour {
 
     protected Node ST_PickUpBall(GameObject agent)
     {
-        FullBodyBipedEffector hand = FullBodyBipedEffector.RightHand; 
+        //FullBodyBipedEffector hand = agent.GetComponent<FullBodyBipedEffector>();//  FullBodyBipedEffector.RightHand;
+         
         Val<Vector3> ballPosition = Val.V(() => ball.transform.position);
         Node pickUpBall = new Sequence(
-                agent.GetComponent<BehaviorMecanim>().Node_GoToUpToRadius(ballPosition, 5f),
-                agent.GetComponent<BehaviorMecanim>().Node_StartInteraction(hand, obj),
-                new LeafWait(1000)
+
+                //agent.GetComponent<BehaviorMecanim>().Node_GoTo(wander[0].position), new LeafWait(1000),
+                agent.GetComponent<BehaviorMecanim>().Node_GoToUpToRadius(ball.transform.position, 6.0f),
+                new LeafWait(1000),
+                agent.GetComponent<BehaviorMecanim>().Node_BodyAnimation("PICKUPRIGHT", true)
+                
+                //agent.GetComponent<BehaviorMecanim>().Node_StartInteraction(hand, obj)
+                //new LeafWait(1000)
             );
+        ball.transform.parent = agent.transform; 
         return pickUpBall; 
     }
 
